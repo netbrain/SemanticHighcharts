@@ -3,8 +3,10 @@
 
 namespace SRF\Highcharts;
 
+use SMWOutputs;
 use SMWQueryResult;
 use SMWResultPrinter;
+use SRF\HighchartsHelp;
 
 abstract class Chart extends SMWResultPrinter{
 
@@ -20,9 +22,8 @@ abstract class Chart extends SMWResultPrinter{
 	 * Implemented by subclasses.
 	 */
 	protected function getResultText( SMWQueryResult $res, $outputmode ) {
-		global $shcAgreedToHCLicense;
-		if(!$shcAgreedToHCLicense){
-			return wfMessage('srf-hc-license-warning')->text();
+		if(!HighchartsHelp::hasAgreedToLicense()){
+			return HighchartsHelp::getLicenseWarning();
 		}
 		SMWOutputs::requireResource( 'ext.srf.highcharts');
 		$id = uniqid ('hc');

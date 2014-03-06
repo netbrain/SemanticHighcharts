@@ -9,17 +9,26 @@ use SMWResultPrinter;
  */
 class HighchartsHelp extends SMWResultPrinter {
 
+	public static function hasAgreedToLicense(){
+		global $shcAgreedToHCLicense;
+		return $shcAgreedToHCLicense;
+	}
+
+	public static function getLicenseWarning(){
+		return '<div style="color:darkred; font-size: 16px;">'.wfMessage('srf-hc-license-warning')->text()."</div>\n";
+	}
+
 	/**
 	 * Return serialised results in specified format.
 	 * Implemented by subclasses.
 	 */
 	protected function getResultText( SMWQueryResult $res, $outputmode ) {
-		global $shcFormats,$shcAgreedToHCLicense;
+		global $shcFormats;
 
 		$out = '';
 
-		if(!$shcAgreedToHCLicense){
-			$out .= '<div style="color:darkred; font-size: 16px;">'.wfMessage('srf-hc-license-warning')->text()."</div>\n";
+		if(!self::hasAgreedToLicense()){
+			$out .= self::getLicenseWarning();
 		}
 
 		$out .= "{| class=\"wikitable\" style=\"width:100%;\"\n";

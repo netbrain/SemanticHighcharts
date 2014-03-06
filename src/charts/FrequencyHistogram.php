@@ -12,19 +12,19 @@ class FrequencyHistogram extends Chart {
 	public function getParamDefinitions( array $definitions ) {
 		$params = parent::getParamDefinitions( $definitions );
 		$params['bins'] = array(
-			'message' => 'srf-hc-paramdesc-bins',
+			'message' => 'srf-hc-paramdesc-frequency-histogram-bins',
 			'default' => 0,
 			'type'    => 'integer',
 		);
 
 		$params['binrange'] = array(
-			'message' => 'srf-hc-paramdesc-binrange',
+			'message' => 'srf-hc-paramdesc-frequency-histogram-binrange',
 			'default' => 0,
 			'type'    => 'integer',
 		);
 
 		$params['xlrotation'] = array(
-			'message' => 'srf-hc-paramdesc-xlrotation',
+			'message' => 'srf-hc-paramdesc-frequency-histogram-xlrotation',
 			'default' => 0,
 			'type'    => 'integer',
 		);

@@ -1,28 +1,16 @@
 <?php
 
-namespace SRF\HighCharts;
+namespace SRF\Highcharts;
 
 use SMWDINumber;
 use SMWNumberValue;
 use SMWQueryResult;
+use SMWResultPrinter;
 
-class FrequencyHistogram implements Chart {
+class FrequencyHistogram extends Chart {
 
-	/**
-	 * @var $params array
-	 */
-	protected $params;
-
-	/**
-	 * @var $queryResult SMWQueryResult
-	 */
-	protected $queryResult;
-
-	public function setParameters($params = array()) {
-		$this->params = $params;
-	}
-
-	public function getParameterDefinitions() {
+	public function getParamDefinitions( array $definitions ) {
+		$params = parent::getParamDefinitions( $definitions );
 		$params['bins'] = array(
 			'message' => 'srf-hc-paramdesc-bins',
 			'default' => 0,
@@ -95,7 +83,7 @@ class FrequencyHistogram implements Chart {
 
 	}
 
-	public function getChartJSON() {
+	protected function getChartJSON() {
 		$title = $this->params['title'];
 		$subtitle = $this->params['subtitle'];
 		$ytitle = $this->params['ytitle'];
@@ -185,7 +173,8 @@ class FrequencyHistogram implements Chart {
 		$p10 = $this->getPercentile(0.1,$sortedFrequencyTableValues);
 		$p50 = $this->getPercentile(0.5,$sortedFrequencyTableValues);
 		$p90 = $this->getPercentile(0.9,$sortedFrequencyTableValues);
-		$template = <<<EOT
+
+		$json = <<<EOT
 {
     chart: {
         type: 'column',
@@ -246,10 +235,6 @@ class FrequencyHistogram implements Chart {
     series: $series
 }
 EOT;
-		return $template;
-	}
-
-	public function setQueryResult( SMWQueryResult $res ) {
-		$this->queryResult = $res;
+		return $json;
 	}
 }

@@ -22,7 +22,7 @@ abstract class Chart extends SMWResultPrinter{
 	protected function getResultText( SMWQueryResult $res, $outputmode ) {
 		global $shcAgreedToHCLicense;
 		if(!$shcAgreedToHCLicense){
-			return "This output format requires additional attention in regards to licensing. Please refer to https://www.mediawiki.org/wiki/Extension:SemanticHighcharts#License on how to proceed.";
+			return wfMessage('srf-hc-license-warning')->text();
 		}
 		SMWOutputs::requireResource( 'ext.srf.highcharts');
 		$id = uniqid ('hc');

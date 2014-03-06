@@ -19,7 +19,7 @@ class HighchartsHelp extends SMWResultPrinter {
 		$out = '';
 
 		if(!$shcAgreedToHCLicense){
-			$out .= '<div style="text-color:red;">'.wfMessage('srf-hc-license-warning')->text().'</div>';
+			$out .= '<div style="color:darkred; font-size: 16px;">'.wfMessage('srf-hc-license-warning')->text()."</div>\n";
 		}
 
 		$out .= "{| class=\"wikitable\" style=\"width:100%;\"\n";

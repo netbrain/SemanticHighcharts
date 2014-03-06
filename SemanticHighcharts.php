@@ -2,13 +2,16 @@
 
 global $wgExtensionFunctions, $wgExtensionMessagesFiles, $wgExtensionCredits, $wgResourceModules, $shcAgreedToHCLicense;
 
+//i18n
+$wgExtensionMessagesFiles['SemanticHighcharts'] = __DIR__ . '/SemanticHighcharts.i18n.php';
+
 $wgExtensionCredits['semantic'][] = array(
 	'path' => __FILE__,
 	'name' => 'SemanticHighcharts',
 	'version' => '0.0.1',
 	'author' => 'Kim Eik',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:SemanticHighcharts',
-	'descriptionmsg' => 'semantichighcharts-desc'
+	'descriptionmsg' => 'srf-hc-desc'
 );
 
 if (!defined('MEDIAWIKI')) {
@@ -40,12 +43,9 @@ $wgResourceModules['ext.srf.highcharts'] = array(
 		$basePath.'vendor/netbrain/highcharts-js/modules/no-data-to-display.src.js',
 		'src/js/srfhighcharts.js'
 	),
-	'localBasePath' => dirname(__FILE__),
+	'localBasePath' => __DIR__,
 	'remoteExtPath' => 'SemanticHighcharts'
 );
-
-//i18n
-$wgExtensionMessagesFiles['SemanticHighcharts'] = dirname(__FILE__) . '/SemanticHighcharts.i18n.php';
 
 $wgExtensionFunctions[] = function() {
 	global $smwgResultFormats, $smwgResultAliases, $shcFormats;

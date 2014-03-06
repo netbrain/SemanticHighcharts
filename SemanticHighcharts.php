@@ -2,8 +2,6 @@
 
 global $wgExtensionFunctions, $wgExtensionMessagesFiles, $wgExtensionCredits, $wgResourceModules, $shcAgreedToHCLicense;
 
-$shcAgreedToHCLicense = false;
-
 $wgExtensionCredits['semantic'][] = array(
 	'path' => __FILE__,
 	'name' => 'SemanticHighcharts',
@@ -53,8 +51,8 @@ $wgExtensionFunctions[] = function() {
 	global $smwgResultFormats, $smwgResultAliases, $shcFormats;
 
 	$shcFormats = array(
-		'highcharts' => 'SRF\HC',
-		'hc:frequency histogram' => 'SRF\Highcharts\FrequencyHistogram',
+		'highcharts' => 'SRF\HighchartsHelp',
+		'hc:frequency-histogram' => 'SRF\Highcharts\FrequencyHistogram',
 	);
 
 	$formatAliases = array(

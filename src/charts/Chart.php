@@ -42,18 +42,6 @@ abstract class Chart extends SMWResultPrinter{
 	public function getParamDefinitions( array $definitions ) {
 		$params = parent::getParamDefinitions( $definitions );
 
-		$params['yscale'] = array(
-			'message' => 'srf-hc-paramdesc-yscale',
-			'default' => 'normal',
-			'values' => array('normal','log'),
-		);
-
-		$params['xscale'] = array(
-			'message' => 'srf-hc-paramdesc-xscale',
-			'default' => 'normal',
-			'values' => array('normal','log'),
-		);
-
 		$params['ytitle'] = array(
 			'message' => 'srf-hc-paramdesc-ytitle',
 			'default' => 'Y-axis',

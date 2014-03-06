@@ -11,7 +11,7 @@ $wgExtensionCredits['semantic'][] = array(
 	'version' => '0.0.1',
 	'author' => 'Kim Eik',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:SemanticHighcharts',
-	'descriptionmsg' => 'srf-hc-desc'
+	'descriptionmsg' => 'semantichighcharts-desc'
 );
 
 if (!defined('MEDIAWIKI')) {

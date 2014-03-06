@@ -12,6 +12,8 @@ if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 	include_once( __DIR__ . '/vendor/autoload.php' );
 }
 
+global $wgExtensionFunctions, $wgExtensionMessagesFiles, $wgExtensionCredits, $wgResourceModules;
+
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'SemanticHighcharts',

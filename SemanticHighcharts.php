@@ -2,8 +2,22 @@
 
 global $wgExtensionFunctions, $wgExtensionMessagesFiles, $wgExtensionCredits, $wgResourceModules, $shcAgreedToHCLicense;
 
-//i18n
-$wgExtensionMessagesFiles['SemanticHighcharts'] = __DIR__ . '/SemanticHighcharts.i18n.php';
+if (!defined('MEDIAWIKI')) {
+	die('Not an entry point.');
+}
+
+if (!defined('ParamProcessor_VERSION')) {
+	die('SemanticHighcharts requires extension ParamProcessor');
+}
+
+if ( !defined( 'SMW_VERSION' ) ) {
+	die('SemanticHighcharts requires extension SemanticMediaWiki');
+}
+
+if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+	include_once( __DIR__ . '/vendor/autoload.php' );
+}
+
 
 $wgExtensionCredits['semantic'][] = array(
 	'path' => __FILE__,
@@ -14,21 +28,8 @@ $wgExtensionCredits['semantic'][] = array(
 	'descriptionmsg' => 'semantichighcharts-desc'
 );
 
-if (!defined('MEDIAWIKI')) {
-	die('Not an entry point.');
-}
-
-if (!defined('ParamProcessor_VERSION')) {
-	die($wgExtensionCredits['name'].' requires extension ParamProcessor');
-}
-
-if ( !defined( 'SMW_VERSION' ) ) {
-	die($wgExtensionCredits['name'].' requires extension SemanticMediaWiki');
-}
-
-if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
-	include_once( __DIR__ . '/vendor/autoload.php' );
-}
+//i18n
+$wgExtensionMessagesFiles['SemanticHighcharts'] = dirname(__FILE__) . '/SemanticHighcharts.i18n.php';
 
 $basePath = '';
 if ( !file_exists( __DIR__ . '/vendor' ) ) {

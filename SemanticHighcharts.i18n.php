@@ -1,9 +1,20 @@
 <?php
+
+/**
+ * Internationalisation file for extension SemanticHighcharts
+ *
+ * @file
+ * @ingroup Extensions
+ */
 $messages = array();
 
+/** English
+ * @author Kim Eik
+ */
 $messages['en'] = array(
 	'semantichighcharts-desc' => 'A SMW result format displaying data with the help of the highcharts library',
 	'srf-hc-license-warning' => 'This output format requires additional attention in regards to licensing. Please refer to https://www.mediawiki.org/wiki/Extension:SemanticHighcharts#License',
+	'srf-hc-format-highcharts-table-caption' => 'This is the "highcharts" result format for SMW, below you will find a list of all available formats and their parameters.',
 
 	//formats
 	'srf-hc-formatdesc-highcharts' => 'Shows a list of formats and parameters.',

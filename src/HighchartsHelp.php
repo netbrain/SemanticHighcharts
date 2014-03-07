@@ -32,7 +32,7 @@ class HighchartsHelp extends SMWResultPrinter {
 		}
 
 		$out .= "{| class=\"wikitable\" style=\"width:100%;\"\n";
-		$out .= "|+ This is the \"highcharts\" result format for SMW, below you will find a list of all available highcharts formats and their parameters.\n";
+		$out .= "|+ ".wfMessage('srf-hc-format-highcharts-table-caption')->text()."\n";
 		$out .= "|-\n";
 		$out .= "!Format\n";
 		$out .= "!Description\n";

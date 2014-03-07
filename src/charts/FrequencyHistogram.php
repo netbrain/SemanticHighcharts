@@ -2,10 +2,7 @@
 
 namespace SRF\Highcharts;
 
-use SMWDINumber;
 use SMWNumberValue;
-use SMWQueryResult;
-use SMWResultPrinter;
 
 class FrequencyHistogram extends Chart {
 
@@ -133,7 +130,7 @@ class FrequencyHistogram extends Chart {
 		}
 
 		if($numBins === 0){
-			$numBins = $count;
+			$numBins = $total;
 		}
 
 		$mode = 0;
@@ -155,7 +152,7 @@ class FrequencyHistogram extends Chart {
 
 			$series[0]['data'][] = array(
 				'y' => $sumOccurenceInRange/$total,
-				'name' => $numBins === $count ? $bmin : $bmin . '-'. ($bmax > $max ? $max : $bmax),
+				'name' => $numBins === $total ? $bmin : $bmin . '-'. ($bmax > $max ? $max : $bmax),
 			);
 
 			$series[1]['data'][] = array(

@@ -9,6 +9,10 @@ use SMWResultPrinter;
 use SRF\HighchartsHelp;
 
 abstract class Chart extends SMWResultPrinter{
+	/**
+	 * @var SMWQueryResult the query result.
+	 */
+	protected $queryResult;
 
 	/**
 	 * Returns json output for highcharts
@@ -25,6 +29,7 @@ abstract class Chart extends SMWResultPrinter{
 		if(!HighchartsHelp::hasAgreedToLicense()){
 			return HighchartsHelp::getLicenseWarning();
 		}
+		$this->queryResult = $res;
 		SMWOutputs::requireResource( 'ext.srf.highcharts');
 		$id = uniqid ('hc');
 		$js = sprintf(

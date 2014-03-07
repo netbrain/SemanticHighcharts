@@ -50,22 +50,22 @@ abstract class Chart extends SMWResultPrinter{
 
 		$params['ytitle'] = array(
 			'message' => 'srf-hc-paramdesc-ytitle',
-			'default' => 'Y-axis',
+			'default' => '',
 		);
 
 		$params['xtitle'] = array(
 			'message' => 'srf-hc-paramdesc-xtitle',
-			'default' => 'X-axis',
+			'default' => '',
 		);
 
 		$params['title'] = array(
 			'message' => 'srf-hc-paramdesc-title',
-			'default' => 'Title',
+			'default' => '',
 		);
 
 		$params['subtitle'] = array(
 			'message' => 'srf-hc-paramdesc-subtitle',
-			'default' => 'Subtitle',
+			'default' => '',
 		);
 
 		$params['min-width'] = array(
